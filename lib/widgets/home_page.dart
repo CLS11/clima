@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/location.dart';
 import 'package:myapp/components/networking.dart';
+import 'package:myapp/widgets/location_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 const apiKey = '182045b56f2e3480a284defb58cb861b';
 
@@ -33,10 +35,25 @@ class _HomePageState extends State<HomePage> {
     // final temperature = decodedData['main']['temp'];
     // final condition = decodedData['weather'][0]['id'];
     // final cityName = decodedData['name'];
+     await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return const LocationScreen();
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100,
+        ),
+      ),
+    );
   }
 }
